@@ -1,15 +1,15 @@
 <template>
-  <div class="container">
     <div class="app__container">
-      <AddTask @add-todo="addTodo"></AddTask>
-      <TodosContainer :activeTodos="activeTodos" :doneTodos="doneTodos" @toggle-todo="toggleTodo" @remove-todo="removeTodo"></TodosContainer>
+      <AddTask class="add-task__fixed" @add-todo="addTodo" />
+      <div class="todos__scrollable">
+        <Todos :activeTodos="activeTodos" :doneTodos="doneTodos" @toggle-todo="toggleTodo" @remove-todo="removeTodo" />
+      </div>
     </div>
-  </div>
 </template>
 
 <script setup>
 import AddTask from "@/components/AddTask.vue";
-import TodosContainer from "@/components/TodosContainer.vue";
+import Todos from "@/components/Todos.vue";
   import {ref, computed} from 'vue';
 
   const todos = ref([]);
@@ -38,25 +38,39 @@ import TodosContainer from "@/components/TodosContainer.vue";
 </script>
 
 <style scoped>
-  .container {
-    background-color: #0D0714;
-    width: 100vw;
-    height: 100vh;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-  }
   .app__container {
     background-color: #1D1825;
-    min-width: 20%;
-    min-height: 50%;
+    min-width: 380px;
+    min-height: 400px;
     padding: 25px 30px;
     border-radius: 10px;
     display: flex;
     flex-direction: column;
-    gap: 20px;
+    gap: 40px;
     color: white;
     font-size: 15px;
     box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px;
+  }
+  .app__container {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    height: 500px; /* или min-height/max-height */
+  }
+  .add-task__fixed {
+    position: sticky;
+    top: 0;
+    z-index: 1;
+    background: #1D1825;
+  }
+  .todos__scrollable {
+    max-height: 400px;
+    overflow-y: auto;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+  }
+
+  .todos__scrollable::-webkit-scrollbar {
+    display: none;
   }
 </style>

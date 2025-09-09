@@ -1,7 +1,15 @@
 <template>
     <div class="todo__add-task">
-    <input type="text" placeholder="add a new task" class="add-task__input" v-model="addTodoInputValue" maxlength="30">
-    <button @click="addTodo" class="add-task__btn">+</button>
+        <input 
+            v-model="addTodoInputValue" 
+            class="add-task__input" 
+            placeholder="Add a new task" 
+            type="text" 
+            maxlength="30"
+        >
+        <button class="add-task__btn" @click="addTodo">
+            <img class="vector" src="../../public/Vector.svg" alt="vector">
+        </button>
   </div>
 </template>
 
@@ -30,7 +38,7 @@
   }
       .add-task__input {
         flex: 1;
-        padding: 4px 8px;
+        padding: 8px 8px;
         border-radius: 7px;
         outline: none;
         border: 2px solid #9e78cf;
@@ -38,10 +46,9 @@
         font-size: 12px;
         color: white;
         transition: all .4s ease;
-
-          &:focus {
-            border: 2px solid #8a44e6;
-          }
+      }
+      .add-task__input:focus {
+        border: 2px solid #8a44e6;
       }
       .add-task__btn {
         padding: 2px 5px;
@@ -51,5 +58,10 @@
         background: #9e78cf;
         cursor: pointer;
         color: white;
+      }
+      .vector {
+        width: 24px;
+        height: 24px;
+        fill: white;
       }
 </style>
