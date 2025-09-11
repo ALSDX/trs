@@ -39,23 +39,17 @@ import Todos from "@/components/Todos.vue";
 
 <style scoped>
   .app__container {
+    position: relative;
     background-color: #1D1825;
-    min-width: 380px;
-    min-height: 400px;
-    padding: 25px 30px;
-    border-radius: 10px;
+    min-width: 480px;
+    min-height: 550px;
+    padding: 35px 45px;
+    border-radius: 15px;
     display: flex;
     flex-direction: column;
     gap: 40px;
     color: white;
-    font-size: 15px;
     box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px;
-  }
-  .app__container {
-    position: relative;
-    display: flex;
-    flex-direction: column;
-    height: 500px; /* или min-height/max-height */
   }
   .add-task__fixed {
     position: sticky;
@@ -64,7 +58,7 @@ import Todos from "@/components/Todos.vue";
     background: #1D1825;
   }
   .todos__scrollable {
-    max-height: 400px;
+    max-height: 550px;
     overflow-y: auto;
     scrollbar-width: none;
     -ms-overflow-style: none;

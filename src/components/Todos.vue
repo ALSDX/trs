@@ -7,6 +7,7 @@
                 :todo="todo" 
                 :key="todo.id"
                 @toggle-todo="$emit('toggle-todo', todo)"
+                @remove-todo="$emit('remove-todo', todo)"
             />
         </div>
         <div v-else class="todo__wrapper empty">
@@ -52,7 +53,7 @@
 <style scoped>
   .todo__tasks-container {
     display: flex;
-    height: 330px;
+    height: 500px;
     gap: 40px;
     flex-direction: column;
     justify-content: space-between;
@@ -67,6 +68,5 @@
   }
   .todo__empty-message {
     opacity: .7;
-    font-size: 14px;
   }
 </style>

@@ -8,12 +8,13 @@
             maxlength="30"
         >
         <button class="add-task__btn" @click="addTodo">
-            <img class="add-task__btn-img" src='@/assets/images/plus.svg' alt="img plus">
+            <PlusIcon />
         </button>
   </div>
 </template>
 
 <script setup>
+    import PlusIcon from '@/assets/icons/PlusIcon.vue';
     import {ref} from 'vue'
 
     const emit = defineEmits(['add-todo']);
@@ -38,30 +39,28 @@
   }
       .add-task__input {
         flex: 1;
+        height: 34px;
         padding: 8px 8px;
-        border-radius: 7px;
+        border-radius: 10px;
         outline: none;
-        border: 2px solid #9e78cf;
+        border: 1px solid #9e78cf;
         background: none;
-        font-size: 12px;
         color: white;
         transition: all .4s ease;
       }
       .add-task__input:focus {
-        border: 2px solid #8a44e6;
+        border: 1px solid #8a44e6;
       }
       .add-task__btn {
-        padding: 2px 5px;
-        border-radius: 5px;
+        width: 34px;
+        height:34px;
+        padding: 4px 4px 0px;
+        border: 1px solid #9e78cf;
+        border-radius: 10px;
         border: none;
         outline: none;
         background: #9e78cf;
         cursor: pointer;
         color: white;
-      }
-      .vector {
-        width: 24px;
-        height: 24px;
-        fill: white;
       }
 </style>
