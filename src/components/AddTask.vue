@@ -8,7 +8,7 @@
             maxlength="30"
         >
         <button class="add-task__btn" @click="addTodo">
-            <img class="vector" src="../../public/Vector.svg" alt="vector">
+            <img class="add-task__btn-img" src='@/assets/images/plus.svg' alt="img plus">
         </button>
   </div>
 </template>

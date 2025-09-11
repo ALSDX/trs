@@ -35,7 +35,8 @@
 </template>
 
 <script setup>
-import TodoItem from "@/components/TodoItem.vue";
+    import TodoItem from "@/components/TodoItem.vue";
+    
     const props = defineProps({
         activeTodos: {
             type: Array,

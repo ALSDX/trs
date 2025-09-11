@@ -5,7 +5,9 @@
         @click="$emit('toggle-todo', todo)"
     >
         <p class="todo__text-title">{{ todo.title }}</p>
-        <button v-if="todo.done" class="todo__remove-btn" @click.stop="$emit('remove-todo', todo)">🗑️</button>
+        <button v-if="todo.done" class="todo__remove-btn" @click.stop="$emit('remove-todo', todo)">
+            <img class="todo__btn-img" src="@/assets/images/trash.svg" alt="trash img">
+        </button>
     </div>
 </template>
 
@@ -48,5 +50,8 @@
     text-decoration: none;
     cursor: pointer;
     padding: 5px;
+  }
+  .todo__btn-img {
+    fill: #9E78CF;
   }
 </style>
