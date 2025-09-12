@@ -17,6 +17,7 @@
 <script setup>
     import CheckMarkIcon from '@/assets/icons/CheckMarkIcon.vue';
     import TrashIcon from '@/assets/icons/TrashIcon.vue';
+    
     const props = defineProps({
         todo: {
             type: Object,

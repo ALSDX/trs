@@ -37,30 +37,30 @@
     gap: 10px;
     width: 100%;
   }
-      .add-task__input {
-        flex: 1;
-        height: 34px;
-        padding: 8px 8px;
-        border-radius: 10px;
-        outline: none;
-        border: 1px solid #9e78cf;
-        background: none;
-        color: white;
-        transition: all .4s ease;
-      }
-      .add-task__input:focus {
-        border: 1px solid #8a44e6;
-      }
-      .add-task__btn {
-        width: 34px;
-        height:34px;
-        padding: 4px 4px 0px;
-        border: 1px solid #9e78cf;
-        border-radius: 10px;
-        border: none;
-        outline: none;
-        background: #9e78cf;
-        cursor: pointer;
-        color: white;
-      }
+  .add-task__input {
+    flex: 1;
+    height: 34px;
+    padding: 8px 8px;
+    border-radius: 10px;
+    outline: none;
+    border: 1px solid #9e78cf;
+    background: none;
+    color: white;
+    transition: all .4s ease;
+  }
+  .add-task__input:focus {
+    border: 1px solid #8a44e6;
+  }
+  .add-task__btn {
+    width: 34px;
+    height:34px;
+    padding: 4px 4px 0px;
+    border: 1px solid #9e78cf;
+    border-radius: 10px;
+    border: none;
+    outline: none;
+    background: #9e78cf;
+    cursor: pointer;
+    color: white;
+  }
 </style>
