@@ -16,3 +16,17 @@ body {
     justify-content: center;
     overflow: hidden;
 }
+
+.app-todo__container {
+    position: relative;
+    background-color: #1D1825;
+    min-width: 480px;
+    min-height: 550px;
+    padding: 35px 45px;
+    border-radius: 15px;
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+    color: white;
+    box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px;
+}

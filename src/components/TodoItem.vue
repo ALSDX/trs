@@ -3,7 +3,7 @@
         :class="{ done: todo.done }" 
         class="todo__item" 
     >
-        <p class="todo__text-title">{{ todo.title }}</p>
+        <p class="todo__text-title" @click="$router.push(`todo/${todo.id}`)">{{ todo.title }}</p>
         <button class="todo__btn" @click="$emit('toggle-todo', todo)">
             <CheckMarkIcon />
         </button>
@@ -45,6 +45,7 @@
   }
   .todo__text-title {
     flex: 1;
+    cursor: pointer;
   }
   .todo__btn {
     background: none;
