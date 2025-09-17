@@ -6,11 +6,15 @@ const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
   routes: [
     {
+      path: '/',
+      redirect: '/todos'
+    },
+    {
       path: '/todos',
       component: TodoList
     },
     {
-      path: '/todo/:id',
+      path: '/todos/:id',
       component: SingleTodo
     }
   ],

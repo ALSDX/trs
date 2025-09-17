@@ -1,13 +1,22 @@
 <template>
     <div class="app-todo__container">
         <div class="todo__item">
-            <p class="todo__text-title" @click="$router.push('/todos')">Todo with id - {{ $route.params.id }}</p>
+            <p class="todo__text-title" @click="navigateTodo">Todo with id - {{ todoId }}</p>
         </div>
     </div>
 </template>
 
 <script setup>
+  import { useRoute, useRouter } from 'vue-router';
 
+  const route = useRoute();
+  const router = useRouter();
+  
+  const todoId = route.params.id;
+
+  const navigateTodo = () => {
+    router.push({path: `/todos`});
+  }
 </script>
 
 <style scoped>
