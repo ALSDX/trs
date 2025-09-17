@@ -8,6 +8,7 @@
                 :key="todo.id"
                 @toggle-todo="$emit('toggle-todo', todo)"
                 @remove-todo="$emit('remove-todo', todo)"
+                @navigate-todo="$emit('navigate-todo', todo.id)"
             />
         </div>
         <div v-else class="todo__wrapper empty">
