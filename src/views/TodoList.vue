@@ -14,9 +14,10 @@
 </template>
 
 <script setup>
+  import { getTodos } from "@/api/todo/getTodos";
   import AddTask from "@/components/AddTask.vue";
   import Todos from "@/components/Todos.vue";
-  import {ref, computed} from 'vue';
+  import {ref, computed, onMounted} from 'vue';
   import { useRouter } from "vue-router";
 
   const todos = ref([]);
@@ -48,6 +49,15 @@
 
   const activeTodos = computed(() => todos.value.filter((todo) => !todo.done));
   const doneTodos = computed(() => todos.value.filter((todo) => todo.done));
+
+  onMounted(async () => {
+    const rawTodos = await getTodos();
+
+    todos.value = rawTodos.map((todo) => ({
+      ...todo,
+      done: false
+    }));
+  })
 </script>
 
 <style scoped>
