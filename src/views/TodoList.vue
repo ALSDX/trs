@@ -7,7 +7,7 @@
           :doneTodos="doneTodos" 
           @toggle-todo="toggleTodo" 
           @remove-todo="removeTodo"
-          @navigate-todo="navigateTodo" 
+          @navigate-todo="navigateTodo"
         />
       </div>
     </div>

@@ -6,7 +6,7 @@ export const getTodos = async () => {
     try {
         const response = await axiosInstance.get('/todos');
 
-        return response.data
+        return response.data;
     } catch (error) {
         console.error(error.message)
     }
