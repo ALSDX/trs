@@ -1,12 +1,12 @@
 <template>
     <div class="app-todo__container">
-      <AddTask class="add-task__fixed" @add-todo="addTodo" />
+      <AddTask class="add-task__fixed" @add-todo="todoStore.addTodo" />
       <div class="todos__scrollable">
         <Todos 
-          :activeTodos="activeTodos" 
-          :doneTodos="doneTodos" 
-          @toggle-todo="toggleTodo" 
-          @remove-todo="removeTodo"
+          :activeTodos="todoStore.activeTodos" 
+          :doneTodos="todoStore.doneTodos" 
+          @toggle-todo="todoStore.toggleTodo" 
+          @remove-todo="todoStore.removeTodo"
           @navigate-todo="navigateTodo"
         />
       </div>
@@ -14,49 +14,22 @@
 </template>
 
 <script setup>
-  import { getTodos } from "@/api/todo/getTodos";
   import AddTask from "@/components/AddTask.vue";
   import Todos from "@/components/Todos.vue";
-  import {ref, computed, onMounted} from 'vue';
+  import { useTodoStore } from "@/store/useTodoStore";
+  import {onMounted} from 'vue';
   import { useRouter } from "vue-router";
 
-  const todos = ref([]);
+  const todoStore = useTodoStore();
 
   const router = useRouter();
-
-  const addTodo = (title) => {
-    if (title.trim()) {
-      const todo = {
-        title,
-        id: Date.now(),
-        done: false
-      }
-      todos.value.push(todo);
-    }
-  }
-
-  const toggleTodo = (todo) => {
-    todo.done = !todo.done
-  }
-
-  const removeTodo = (todo) => {
-    todos.value = todos.value.filter((t) => t.id !== todo.id)
-  }
 
   const navigateTodo = (id) => {
     router.push({path: `/todos/${id}`});
   }
 
-  const activeTodos = computed(() => todos.value.filter((todo) => !todo.done));
-  const doneTodos = computed(() => todos.value.filter((todo) => todo.done));
-
-  onMounted(async () => {
-    const rawTodos = await getTodos();
-
-    todos.value = rawTodos.map((todo) => ({
-      ...todo,
-      done: false
-    }));
+  onMounted(() => {
+    todoStore.fetchTodos()
   })
 </script>
 
