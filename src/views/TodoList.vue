@@ -1,12 +1,12 @@
 <template>
     <div class="app-todo__container">
-      <AddTask class="add-task__fixed" @add-todo="todoStore.addTodo" />
+      <AddTask class="add-task__fixed" @add-todo="addTodo" />
       <div class="todos__scrollable">
         <Todos 
-          :activeTodos="todoStore.activeTodos" 
-          :doneTodos="todoStore.doneTodos" 
-          @toggle-todo="todoStore.toggleTodo" 
-          @remove-todo="todoStore.removeTodo"
+          :activeTodos="activeTodos" 
+          :doneTodos="doneTodos" 
+          @toggle-todo="toggleTodo" 
+          @remove-todo="removeTodo"
           @navigate-todo="navigateTodo"
         />
       </div>
@@ -17,10 +17,12 @@
   import AddTask from "@/components/AddTask.vue";
   import Todos from "@/components/Todos.vue";
   import { useTodoStore } from "@/store/useTodoStore";
+  import { storeToRefs } from "pinia";
   import {onMounted} from 'vue';
   import { useRouter } from "vue-router";
 
-  const todoStore = useTodoStore();
+  const { addTodo, removeTodo, toggleTodo } = useTodoStore();
+  const { activeTodos, doneTodos } = storeToRefs(useTodoStore)
 
   const router = useRouter();
 
