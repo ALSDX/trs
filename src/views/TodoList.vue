@@ -13,7 +13,7 @@
     </div>
 </template>
 
-<script setup>
+<script setup lang="ts">
   import AddTask from "@/components/AddTask.vue";
   import Todos from "@/components/Todos.vue";
   import { useTodoStore } from "@/store/useTodoStore";
@@ -21,12 +21,13 @@
   import {onMounted} from 'vue';
   import { useRouter } from "vue-router";
 
-  const { addTodo, removeTodo, toggleTodo } = useTodoStore();
-  const { activeTodos, doneTodos } = storeToRefs(useTodoStore)
+  const todoStore = useTodoStore();
+  const { addTodo, removeTodo, toggleTodo } = todoStore;
+  const { activeTodos, doneTodos } = storeToRefs(todoStore)
 
   const router = useRouter();
 
-  const navigateTodo = (id) => {
+  const navigateTodo = (id: number) => {
     router.push({path: `/todos/${id}`});
   }
 

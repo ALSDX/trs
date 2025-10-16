@@ -13,13 +13,15 @@
   </div>
 </template>
 
-<script setup>
+<script setup lang="ts">
     import PlusIcon from '@/assets/icons/PlusIcon.vue';
     import {ref} from 'vue'
 
-    const emit = defineEmits(['add-todo']);
+    const emit = defineEmits<{
+      (e: 'add-todo', value: string)
+    }>()
 
-    const addTodoInputValue = ref("");
+    const addTodoInputValue = ref<string>("");
 
     const addTodo = () => {
         if (addTodoInputValue.value.trim()) {

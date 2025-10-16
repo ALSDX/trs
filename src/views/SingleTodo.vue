@@ -6,15 +6,22 @@
     </div>
 </template>
 
-<script setup>
+<script setup lang="ts">
   import { getTodo } from '@/api/todo/getTodo';
+  import { Todo } from '@/types/todo';
   import { onMounted, reactive } from 'vue';
   import { useRoute, useRouter } from 'vue-router';
 
   const route = useRoute();
   const router = useRouter();
+
+  interface SingleTodo {
+    id?: number;
+    title?: string;
+    done?: boolean;
+  }
   
-  const todo = reactive({});
+  const todo = reactive<SingleTodo>({});
 
   const todoId = route.params.id;
 
@@ -23,7 +30,7 @@
   }
 
   onMounted( async() => {
-    const newTodo = await getTodo(todoId);
+    const newTodo = await getTodo<Todo>(todoId);
 
     Object.assign(todo, newTodo)
   })
