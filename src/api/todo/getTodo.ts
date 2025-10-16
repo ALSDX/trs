@@ -1,10 +1,10 @@
 import { useAxios } from "../useAxios"
 
-export const getTodo = async (id) => {
+export const getTodo = async <T> (id: string | string[]) => {
     const axiosInstance = useAxios();
 
     try {
-        const response = await axiosInstance.get(`/todos/${id}`);
+        const response = await axiosInstance.get<T>(`/todos/${id}`);
 
         return response.data;
     } catch (error) {
