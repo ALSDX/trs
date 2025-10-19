@@ -1,9 +1,9 @@
 <template>
     <div class="todo__tasks-container">
-        <div v-if="props.activeTodos.length > 0" class="todo__wrapper">
-            <p>Tasks to do - {{ props.activeTodos.length }}</p>
+        <div v-if="activeTodos.length > 0" class="todo__wrapper">
+            <p>Tasks to do - {{ activeTodos.length }}</p>
             <TodoItem 
-                v-for="todo in props.activeTodos" 
+                v-for="todo in activeTodos" 
                 :todo="todo" 
                 :key="todo.id"
                 @toggle-todo="$emit('toggle-todo', todo)"
@@ -17,10 +17,10 @@
                 <p class="todo__empty-message">No active tasks...</p>
             </div>
         </div>
-        <div v-if="props.doneTodos.length > 0" class="todo__wrapper">
-            <p>Done - {{ props.doneTodos.length }}</p>
+        <div v-if="doneTodos.length > 0" class="todo__wrapper">
+            <p>Done - {{ doneTodos.length }}</p>
             <TodoItem
-                v-for="todo in props.doneTodos"
+                v-for="todo in doneTodos"
                 :todo="todo"
                 :key="todo.id" 
                 @toggle-todo="$emit('toggle-todo', todo)" 
@@ -40,16 +40,10 @@
     import TodoItem from "@/components/TodoItem.vue";
     import { Todo } from "@/types/todo";
 
-    const props = withDefaults(
-        defineProps<{
-            activeTodos?: Todo[]
-            doneTodos?: Todo[]
-        }>(),
-        {
-            activeTodos: () => [],
-            doneTodos: () => []
-        }
-    )
+    const { activeTodos = [], doneTodos = [] } = defineProps<{
+        activeTodos?: Todo[]
+        doneTodos?: Todo[]
+    }>()
 </script>
 
 <style scoped>

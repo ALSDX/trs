@@ -1,6 +1,6 @@
 import { useAxios } from "../useAxios"
 
-export const getTodo = async <T> (id: string | string[]) => {
+export const getTodo = async <T> (id: string) => {
     const axiosInstance = useAxios();
 
     try {

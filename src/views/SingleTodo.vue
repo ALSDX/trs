@@ -14,14 +14,8 @@
 
   const route = useRoute();
   const router = useRouter();
-
-  interface SingleTodo {
-    id?: number;
-    title?: string;
-    done?: boolean;
-  }
   
-  const todo = reactive<SingleTodo>({});
+  const todo = reactive<Partial<Todo>>({});
 
   const todoId = route.params.id;
 
@@ -30,7 +24,7 @@
   }
 
   onMounted( async() => {
-    const newTodo = await getTodo<Todo>(todoId);
+    const newTodo = await getTodo<Todo>(todoId as string);
 
     Object.assign(todo, newTodo)
   })

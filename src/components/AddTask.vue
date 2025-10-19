@@ -21,7 +21,7 @@
       (e: 'add-todo', value: string)
     }>()
 
-    const addTodoInputValue = ref<string>("");
+    const addTodoInputValue = ref("");
 
     const addTodo = () => {
         if (addTodoInputValue.value.trim()) {

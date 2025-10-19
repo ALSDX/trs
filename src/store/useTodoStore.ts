@@ -29,9 +29,9 @@ export const useTodoStore = defineStore('todo', () => {
   const doneTodos = computed(() => todos.value.filter((todo) => todo.done));
 
   async function fetchTodos() {
-    const rawTodos = await getTodos<Todo[]>();
+    const rawTodos = await getTodos<Omit<Todo, 'done'>[]>();
 
-    todos.value = rawTodos.map((todo: Omit<Todo, 'done'>) => ({
+    todos.value = rawTodos.map((todo) => ({
       ...todo,
       done: false
     }));
