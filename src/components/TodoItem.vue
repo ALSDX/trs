@@ -14,16 +14,14 @@
 </template>
 
 
-<script setup>
+<script setup lang="ts">
     import CheckMarkIcon from '@/assets/icons/CheckMarkIcon.vue';
     import TrashIcon from '@/assets/icons/TrashIcon.vue';
-    
-    const props = defineProps({
-        todo: {
-            type: Object,
-            required: true
-        }
-    })
+    import { Todo } from "@/types/todo";
+
+    const { todo } = defineProps<{
+      todo: Todo
+    }>()
 </script>
 
 <style scoped>

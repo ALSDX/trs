@@ -36,19 +36,14 @@
     </div>
 </template>
 
-<script setup>
+<script setup lang="ts">
     import TodoItem from "@/components/TodoItem.vue";
-    
-    const props = defineProps({
-        activeTodos: {
-            type: Array,
-            default: () => []
-        },
-        doneTodos: {
-            type: Array,
-            default: () => []
-        }
-    });
+    import { Todo } from "@/types/todo";
+
+    const { activeTodos = [], doneTodos = [] } = defineProps<{
+        activeTodos?: Todo[]
+        doneTodos?: Todo[]
+    }>()
 </script>
 
 <style scoped>
